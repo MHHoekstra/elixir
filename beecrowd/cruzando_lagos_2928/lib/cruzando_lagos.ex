@@ -11,7 +11,13 @@ defmodule CruzandoLagos do
   end
 
   defp can_cross(number_of_lines, current_line) do
-    IO.gets("") |> can_cross(false, 0, 0, number_of_lines, current_line + 1)
+    line = IO.gets("")
+
+    if String.contains?(line, "-") do
+      can_cross(line, false, 0, 0, number_of_lines, current_line + 1)
+    else
+      can_cross(line, true, 1, 1, number_of_lines, current_line + 1)
+    end
   end
 
   defp can_cross(_line, _jumping, jump_size, number_of_jumps, number_of_lines, current_line)
