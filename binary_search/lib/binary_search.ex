@@ -13,7 +13,6 @@ defmodule BinarySearch do
       -1
   """
   def search(collection, key, comparator \\ fn a, b -> a - b end) do
-    Tuple.to_list(collection)
     search(collection, key, 0, tuple_size(collection) - 1, comparator)
   end
 
